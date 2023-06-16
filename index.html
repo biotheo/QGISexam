@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="data/Litologia_CutSIC_5.js"></script>
+        <script src="data/CLC18_SICMonteGiove_6.js"></script>
+        <script src="data/LimitiComuni_VCO_7.js"></script>
+        <script src="data/LimitiProvinciali_piemonte_8.js"></script>
+        <script src="data/IT1140016_9.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:15, minZoom:7
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        map.createPane('pane_GoogleSatelliteHybrid_0');
+        map.getPane('pane_GoogleSatelliteHybrid_0').style.zIndex = 400;
+        var layer_GoogleSatelliteHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatelliteHybrid_0',
+            opacity: 0.75,
+            attribution: '',
+            minZoom: 7,
+            maxZoom: 15,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_GoogleSatelliteHybrid_0;
+        map.addLayer(layer_GoogleSatelliteHybrid_0);
+        map.createPane('pane_aurinia_model_1');
+        map.getPane('pane_aurinia_model_1').style.zIndex = 401;
+        var img_aurinia_model_1 = 'data/aurinia_model_1.png';
+        var img_bounds_aurinia_model_1 = [[46.218673210445765,8.078407271172484],[46.387004305804524,8.42929781859854]];
+        var layer_aurinia_model_1 = new L.imageOverlay(img_aurinia_model_1,
+                                              img_bounds_aurinia_model_1,
+                                              {pane: 'pane_aurinia_model_1'});
+        bounds_group.addLayer(layer_aurinia_model_1);
+        map.addLayer(layer_aurinia_model_1);
+        map.createPane('pane_re_slope_2');
+        map.getPane('pane_re_slope_2').style.zIndex = 402;
+        var img_re_slope_2 = 'data/re_slope_2.png';
+        var img_bounds_re_slope_2 = [[46.21872953804397,8.078575490540613],[46.38694410525253,8.429072784610414]];
+        var layer_re_slope_2 = new L.imageOverlay(img_re_slope_2,
+                                              img_bounds_re_slope_2,
+                                              {pane: 'pane_re_slope_2'});
+        bounds_group.addLayer(layer_re_slope_2);
+        map.addLayer(layer_re_slope_2);
+        map.createPane('pane_DTM_CutSICesposizione_3');
+        map.getPane('pane_DTM_CutSICesposizione_3').style.zIndex = 403;
+        var img_DTM_CutSICesposizione_3 = 'data/DTM_CutSICesposizione_3.png';
+        var img_bounds_DTM_CutSICesposizione_3 = [[46.21872953804398,8.078575490540565],[46.38694410525254,8.429072784610364]];
+        var layer_DTM_CutSICesposizione_3 = new L.imageOverlay(img_DTM_CutSICesposizione_3,
+                                              img_bounds_DTM_CutSICesposizione_3,
+                                              {pane: 'pane_DTM_CutSICesposizione_3'});
+        bounds_group.addLayer(layer_DTM_CutSICesposizione_3);
+        map.addLayer(layer_DTM_CutSICesposizione_3);
+        map.createPane('pane_DTM_CutSICPENDENZA2_4');
+        map.getPane('pane_DTM_CutSICPENDENZA2_4').style.zIndex = 404;
+        var img_DTM_CutSICPENDENZA2_4 = 'data/DTM_CutSICPENDENZA2_4.png';
+        var img_bounds_DTM_CutSICPENDENZA2_4 = [[46.21872953804398,8.078575490540565],[46.38694410525254,8.429072784610364]];
+        var layer_DTM_CutSICPENDENZA2_4 = new L.imageOverlay(img_DTM_CutSICPENDENZA2_4,
+                                              img_bounds_DTM_CutSICPENDENZA2_4,
+                                              {pane: 'pane_DTM_CutSICPENDENZA2_4'});
+        bounds_group.addLayer(layer_DTM_CutSICPENDENZA2_4);
+        map.addLayer(layer_DTM_CutSICPENDENZA2_4);
+        function pop_Litologia_CutSIC_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CLASSE'] !== null ? autolinker.link(feature.properties['CLASSE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DESC_UNLIT'] !== null ? autolinker.link(feature.properties['DESC_UNLIT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITECODE'] !== null ? autolinker.link(feature.properties['SITECODE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITENAME'] !== null ? autolinker.link(feature.properties['SITENAME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['RELEASE_DA'] !== null ? autolinker.link(feature.properties['RELEASE_DA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MS'] !== null ? autolinker.link(feature.properties['MS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITETYPE'] !== null ? autolinker.link(feature.properties['SITETYPE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['INSPIRE_ID'] !== null ? autolinker.link(feature.properties['INSPIRE_ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_RIP'] !== null ? autolinker.link(feature.properties['COD_RIP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_REG'] !== null ? autolinker.link(feature.properties['COD_REG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DEN_REG'] !== null ? autolinker.link(feature.properties['DEN_REG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Litologia_CutSIC_5_0(feature) {
+            switch(String(feature.properties['DESC_UNLIT'])) {
+                case 'Calcescisti. (Zona Piemontese, Giurassico-Cretaceo)':
+                    return {
+                pane: 'pane_Litologia_CutSIC_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,235,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Gneiss minuti. (Massicci del Dora-Maira, Sesia-Lanzo)':
+                    return {
+                pane: 'pane_Litologia_CutSIC_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,210,166,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Gneiss occhiadini. (Massicci Monte Rosa e Val d`Ossola)':
+                    return {
+                pane: 'pane_Litologia_CutSIC_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,146,67,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Serpentiniti (Zona Piemontese, Giurassico-Cretaceo)':
+                    return {
+                pane: 'pane_Litologia_CutSIC_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(223,79,5,1.0)',
+                interactive: false,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_Litologia_CutSIC_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(127,39,4,1.0)',
+                interactive: false,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Litologia_CutSIC_5');
+        map.getPane('pane_Litologia_CutSIC_5').style.zIndex = 405;
+        map.getPane('pane_Litologia_CutSIC_5').style['mix-blend-mode'] = 'normal';
+        var layer_Litologia_CutSIC_5 = new L.geoJson(json_Litologia_CutSIC_5, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Litologia_CutSIC_5',
+            layerName: 'layer_Litologia_CutSIC_5',
+            pane: 'pane_Litologia_CutSIC_5',
+            onEachFeature: pop_Litologia_CutSIC_5,
+            style: style_Litologia_CutSIC_5_0,
+        });
+        bounds_group.addLayer(layer_Litologia_CutSIC_5);
+        map.addLayer(layer_Litologia_CutSIC_5);
+        function pop_CLC18_SICMonteGiove_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CODE_18'] !== null ? autolinker.link(feature.properties['CODE_18'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Area_Ha'] !== null ? autolinker.link(feature.properties['Area_Ha'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Remark'] !== null ? autolinker.link(feature.properties['Remark'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITECODE'] !== null ? autolinker.link(feature.properties['SITECODE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITENAME'] !== null ? autolinker.link(feature.properties['SITENAME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['RELEASE_DA'] !== null ? autolinker.link(feature.properties['RELEASE_DA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MS'] !== null ? autolinker.link(feature.properties['MS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITETYPE'] !== null ? autolinker.link(feature.properties['SITETYPE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['INSPIRE_ID'] !== null ? autolinker.link(feature.properties['INSPIRE_ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_RIP'] !== null ? autolinker.link(feature.properties['COD_RIP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_REG'] !== null ? autolinker.link(feature.properties['COD_REG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DEN_REG'] !== null ? autolinker.link(feature.properties['DEN_REG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Le_1'] !== null ? autolinker.link(feature.properties['Shape_Le_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Ar_1'] !== null ? autolinker.link(feature.properties['Shape_Ar_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['IntCode'] !== null ? autolinker.link(feature.properties['IntCode'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CLC18_SICMonteGiove_6_0(feature) {
+            switch(String(feature.properties['CODE_18'])) {
+                case '231':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,230,77,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '243':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,204,77,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '311':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(128,255,0,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '312':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,166,0,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '313':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(77,255,0,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '321':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,242,77,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '322':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,255,128,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '324':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,242,0,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '332':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,204,204,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '333':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,255,204,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '335':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,230,204,1.0)',
+                interactive: false,
+            }
+                    break;
+                case '512':
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(128,242,230,1.0)',
+                interactive: false,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_CLC18_SICMonteGiove_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(97,230,36,1.0)',
+                interactive: false,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_CLC18_SICMonteGiove_6');
+        map.getPane('pane_CLC18_SICMonteGiove_6').style.zIndex = 406;
+        map.getPane('pane_CLC18_SICMonteGiove_6').style['mix-blend-mode'] = 'normal';
+        var layer_CLC18_SICMonteGiove_6 = new L.geoJson(json_CLC18_SICMonteGiove_6, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_CLC18_SICMonteGiove_6',
+            layerName: 'layer_CLC18_SICMonteGiove_6',
+            pane: 'pane_CLC18_SICMonteGiove_6',
+            onEachFeature: pop_CLC18_SICMonteGiove_6,
+            style: style_CLC18_SICMonteGiove_6_0,
+        });
+        bounds_group.addLayer(layer_CLC18_SICMonteGiove_6);
+        map.addLayer(layer_CLC18_SICMonteGiove_6);
+        function pop_LimitiComuni_VCO_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_RIP'] !== null ? autolinker.link(feature.properties['COD_RIP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_REG'] !== null ? autolinker.link(feature.properties['COD_REG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_PROV'] !== null ? autolinker.link(feature.properties['COD_PROV'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_CM'] !== null ? autolinker.link(feature.properties['COD_CM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_UTS'] !== null ? autolinker.link(feature.properties['COD_UTS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PRO_COM'] !== null ? autolinker.link(feature.properties['PRO_COM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PRO_COM_T'] !== null ? autolinker.link(feature.properties['PRO_COM_T'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COMUNE'] !== null ? autolinker.link(feature.properties['COMUNE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COMUNE_A'] !== null ? autolinker.link(feature.properties['COMUNE_A'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CC_UTS'] !== null ? autolinker.link(feature.properties['CC_UTS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SIC'] !== null ? autolinker.link(feature.properties['SIC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LimitiComuni_VCO_7_0(feature) {
+            switch(String(feature.properties['SIC'])) {
+                case 'x':
+                    return {
+                pane: 'pane_LimitiComuni_VCO_7',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,51,1.0)',
+                interactive: false,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_LimitiComuni_VCO_7',
+                opacity: 1,
+                color: 'rgba(38,89,128,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(55,126,184,1.0)',
+                interactive: false,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_LimitiComuni_VCO_7');
+        map.getPane('pane_LimitiComuni_VCO_7').style.zIndex = 407;
+        map.getPane('pane_LimitiComuni_VCO_7').style['mix-blend-mode'] = 'normal';
+        var layer_LimitiComuni_VCO_7 = new L.geoJson(json_LimitiComuni_VCO_7, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_LimitiComuni_VCO_7',
+            layerName: 'layer_LimitiComuni_VCO_7',
+            pane: 'pane_LimitiComuni_VCO_7',
+            onEachFeature: pop_LimitiComuni_VCO_7,
+            style: style_LimitiComuni_VCO_7_0,
+        });
+        bounds_group.addLayer(layer_LimitiComuni_VCO_7);
+        map.addLayer(layer_LimitiComuni_VCO_7);
+        function pop_LimitiProvinciali_piemonte_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_RIP'] !== null ? autolinker.link(feature.properties['COD_RIP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_REG'] !== null ? autolinker.link(feature.properties['COD_REG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_PROV'] !== null ? autolinker.link(feature.properties['COD_PROV'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_CM'] !== null ? autolinker.link(feature.properties['COD_CM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_UTS'] !== null ? autolinker.link(feature.properties['COD_UTS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DEN_PROV'] !== null ? autolinker.link(feature.properties['DEN_PROV'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DEN_CM'] !== null ? autolinker.link(feature.properties['DEN_CM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DEN_UTS'] !== null ? autolinker.link(feature.properties['DEN_UTS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SIGLA'] !== null ? autolinker.link(feature.properties['SIGLA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPO_UTS'] !== null ? autolinker.link(feature.properties['TIPO_UTS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LimitiProvinciali_piemonte_8_0(feature) {
+            switch(String(feature.properties['DEN_UTS'])) {
+                case 'Alessandria':
+                    return {
+                pane: 'pane_LimitiProvinciali_piemonte_8',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,51,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Asti':
+                    return {
+                pane: 'pane_LimitiProvinciali_piemonte_8',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,51,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Biella':
+                    return {
+                pane: 'pane_LimitiProvinciali_piemonte_8',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,51,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Cuneo':
+                    return {
+                pane: 'pane_LimitiProvinciali_piemonte_8',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,51,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Novara':
+                    return {
+                pane: 'pane_LimitiProvinciali_piemonte_8',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,51,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Torino':
+                    return {
+                pane: 'pane_LimitiProvinciali_piemonte_8',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,51,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Verbano-Cusio-Ossola':
+                    return {
+                pane: 'pane_LimitiProvinciali_piemonte_8',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,141,60,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Vercelli':
+                    return {
+                pane: 'pane_LimitiProvinciali_piemonte_8',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,51,1.0)',
+                interactive: false,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_LimitiProvinciali_piemonte_8',
+                opacity: 1,
+                color: 'rgba(55,50,12,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,51,1.0)',
+                interactive: false,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_LimitiProvinciali_piemonte_8');
+        map.getPane('pane_LimitiProvinciali_piemonte_8').style.zIndex = 408;
+        map.getPane('pane_LimitiProvinciali_piemonte_8').style['mix-blend-mode'] = 'normal';
+        var layer_LimitiProvinciali_piemonte_8 = new L.geoJson(json_LimitiProvinciali_piemonte_8, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_LimitiProvinciali_piemonte_8',
+            layerName: 'layer_LimitiProvinciali_piemonte_8',
+            pane: 'pane_LimitiProvinciali_piemonte_8',
+            onEachFeature: pop_LimitiProvinciali_piemonte_8,
+            style: style_LimitiProvinciali_piemonte_8_0,
+        });
+        bounds_group.addLayer(layer_LimitiProvinciali_piemonte_8);
+        map.addLayer(layer_LimitiProvinciali_piemonte_8);
+        function pop_IT1140016_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITECODE'] !== null ? autolinker.link(feature.properties['SITECODE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITENAME'] !== null ? autolinker.link(feature.properties['SITENAME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['RELEASE_DA'] !== null ? autolinker.link(feature.properties['RELEASE_DA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MS'] !== null ? autolinker.link(feature.properties['MS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITETYPE'] !== null ? autolinker.link(feature.properties['SITETYPE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['INSPIRE_ID'] !== null ? autolinker.link(feature.properties['INSPIRE_ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_RIP'] !== null ? autolinker.link(feature.properties['COD_RIP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_REG'] !== null ? autolinker.link(feature.properties['COD_REG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DEN_REG'] !== null ? autolinker.link(feature.properties['DEN_REG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_IT1140016_9_0() {
+            return {
+                pane: 'pane_IT1140016_9',
+                opacity: 1,
+                color: 'rgba(228,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_IT1140016_9');
+        map.getPane('pane_IT1140016_9').style.zIndex = 409;
+        map.getPane('pane_IT1140016_9').style['mix-blend-mode'] = 'normal';
+        var layer_IT1140016_9 = new L.geoJson(json_IT1140016_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_IT1140016_9',
+            layerName: 'layer_IT1140016_9',
+            pane: 'pane_IT1140016_9',
+            onEachFeature: pop_IT1140016_9,
+            style: style_IT1140016_9_0,
+        });
+        bounds_group.addLayer(layer_IT1140016_9);
+        map.addLayer(layer_IT1140016_9);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/IT1140016_9.png" /> IT1140016': layer_IT1140016_9,'LimitiProvinciali_piemonte<br /><table><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Alessandria0.png" /></td><td>Alessandria</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Asti1.png" /></td><td>Asti</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Biella2.png" /></td><td>Biella</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Cuneo3.png" /></td><td>Cuneo</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Novara4.png" /></td><td>Novara</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Torino5.png" /></td><td>Torino</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_VerbanoCusioOssola6.png" /></td><td>Verbano-Cusio-Ossola</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Vercelli7.png" /></td><td>Vercelli</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_8.png" /></td><td></td></tr></table>': layer_LimitiProvinciali_piemonte_8,'LimitiComuni_VCO<br /><table><tr><td style="text-align: center;"><img src="legend/LimitiComuni_VCO_7_x0.png" /></td><td>x</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiComuni_VCO_7_1.png" /></td><td></td></tr></table>': layer_LimitiComuni_VCO_7,'CLC18_SICMonteGiove<br /><table><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_2310.png" /></td><td>231</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_2431.png" /></td><td>243</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3112.png" /></td><td>311</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3123.png" /></td><td>312</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3134.png" /></td><td>313</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3215.png" /></td><td>321</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3226.png" /></td><td>322</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3247.png" /></td><td>324</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3328.png" /></td><td>332</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3339.png" /></td><td>333</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_33510.png" /></td><td>335</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_51211.png" /></td><td>512</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_12.png" /></td><td></td></tr></table>': layer_CLC18_SICMonteGiove_6,'Litologia_CutSIC<br /><table><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_CalcescistiZonaPiemonteseGiurassicoCretaceo0.png" /></td><td>Calcescisti. (Zona Piemontese, Giurassico-Cretaceo)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_GneissminutiMassiccidelDoraMairaSesiaLanzo1.png" /></td><td>Gneiss minuti. (Massicci del Dora-Maira, Sesia-Lanzo)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_GneissocchiadiniMassicciMonteRosaeValdOssola2.png" /></td><td>Gneiss occhiadini. (Massicci Monte Rosa e Val d`Ossola)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_SerpentinitiZonaPiemonteseGiurassicoCretaceo3.png" /></td><td>Serpentiniti (Zona Piemontese, Giurassico-Cretaceo)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_4.png" /></td><td></td></tr></table>': layer_Litologia_CutSIC_5,"DTM_CutSIC - PENDENZA2": layer_DTM_CutSICPENDENZA2_4,"DTM_CutSIC - esposizione": layer_DTM_CutSICesposizione_3,"re_slope": layer_re_slope_2,"aurinia_model": layer_aurinia_model_1,"Google Satellite Hybrid": layer_GoogleSatelliteHybrid_0,}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_LimitiComuni_VCO_7.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['COMUNE'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['COMUNE']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LimitiComuni_VCO_7'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_LimitiProvinciali_piemonte_8.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['DEN_UTS'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['DEN_UTS']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LimitiProvinciali_piemonte_8'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_7,layer_LimitiProvinciali_piemonte_8]);
+        map.on("zoomend", function(){
+            resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_7,layer_LimitiProvinciali_piemonte_8]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_7,layer_LimitiProvinciali_piemonte_8]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_7,layer_LimitiProvinciali_piemonte_8]);
+        });
+        </script>
+    </body>
+</html>
