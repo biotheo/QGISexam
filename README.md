@@ -1,4 +1,4 @@
-# QGISexam
+# QGIS exam
 QGIS maps produced for the exam of Application of Geographic Information Systems
 Current version: **1.0**
 
