@@ -34,9 +34,10 @@
         <script src="js/leaflet-measure.js"></script>
         <script src="data/Litologia_CutSIC_5.js"></script>
         <script src="data/CLC18_SICMonteGiove_6.js"></script>
-        <script src="data/LimitiComuni_VCO_7.js"></script>
-        <script src="data/LimitiProvinciali_piemonte_8.js"></script>
-        <script src="data/IT1140016_9.js"></script>
+        <script src="data/LimitiComuni_VCO_8.js"></script>
+        <script src="data/LimitiProvinciali_piemonte_9.js"></script>
+        <script src="data/LimitiRegionali_10.js"></script>
+        <script src="data/IT1140016_11.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:15, minZoom:7
@@ -170,7 +171,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,245,235,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Gneiss minuti. (Massicci del Dora-Maira, Sesia-Lanzo)':
@@ -185,7 +186,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(254,210,166,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Gneiss occhiadini. (Massicci Monte Rosa e Val d`Ossola)':
@@ -200,7 +201,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(253,146,67,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Serpentiniti (Zona Piemontese, Giurassico-Cretaceo)':
@@ -215,7 +216,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(223,79,5,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 default:
@@ -230,7 +231,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(127,39,4,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
             }
@@ -240,7 +241,7 @@
         map.getPane('pane_Litologia_CutSIC_5').style['mix-blend-mode'] = 'normal';
         var layer_Litologia_CutSIC_5 = new L.geoJson(json_Litologia_CutSIC_5, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_Litologia_CutSIC_5',
             layerName: 'layer_Litologia_CutSIC_5',
             pane: 'pane_Litologia_CutSIC_5',
@@ -326,7 +327,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(230,230,77,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '243':
@@ -341,7 +342,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(230,204,77,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '311':
@@ -356,7 +357,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(128,255,0,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '312':
@@ -371,7 +372,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(0,166,0,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '313':
@@ -386,7 +387,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(77,255,0,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '321':
@@ -401,7 +402,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(204,242,77,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '322':
@@ -416,7 +417,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(166,255,128,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '324':
@@ -431,7 +432,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(166,242,0,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '332':
@@ -446,7 +447,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(204,204,204,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '333':
@@ -461,7 +462,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(204,255,204,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '335':
@@ -476,7 +477,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(166,230,204,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case '512':
@@ -491,7 +492,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(128,242,230,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 default:
@@ -506,7 +507,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(97,230,36,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
             }
@@ -516,7 +517,7 @@
         map.getPane('pane_CLC18_SICMonteGiove_6').style['mix-blend-mode'] = 'normal';
         var layer_CLC18_SICMonteGiove_6 = new L.geoJson(json_CLC18_SICMonteGiove_6, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_CLC18_SICMonteGiove_6',
             layerName: 'layer_CLC18_SICMonteGiove_6',
             pane: 'pane_CLC18_SICMonteGiove_6',
@@ -525,7 +526,16 @@
         });
         bounds_group.addLayer(layer_CLC18_SICMonteGiove_6);
         map.addLayer(layer_CLC18_SICMonteGiove_6);
-        function pop_LimitiComuni_VCO_7(feature, layer) {
+        map.createPane('pane_CTR_cut_7');
+        map.getPane('pane_CTR_cut_7').style.zIndex = 407;
+        var img_CTR_cut_7 = 'data/CTR_cut_7.png';
+        var img_bounds_CTR_cut_7 = [[46.21867321043001,8.07840727116169],[46.38700430583803,8.42929781858404]];
+        var layer_CTR_cut_7 = new L.imageOverlay(img_CTR_cut_7,
+                                              img_bounds_CTR_cut_7,
+                                              {pane: 'pane_CTR_cut_7'});
+        bounds_group.addLayer(layer_CTR_cut_7);
+        map.addLayer(layer_CTR_cut_7);
+        function pop_LimitiComuni_VCO_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['COD_RIP'] !== null ? autolinker.link(feature.properties['COD_RIP'].toLocaleString()) : '') + '</td>\
@@ -570,11 +580,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_LimitiComuni_VCO_7_0(feature) {
+        function style_LimitiComuni_VCO_8_0(feature) {
             switch(String(feature.properties['SIC'])) {
                 case 'x':
                     return {
-                pane: 'pane_LimitiComuni_VCO_7',
+                pane: 'pane_LimitiComuni_VCO_8',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -584,12 +594,12 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 default:
                     return {
-                pane: 'pane_LimitiComuni_VCO_7',
+                pane: 'pane_LimitiComuni_VCO_8',
                 opacity: 1,
                 color: 'rgba(38,89,128,1.0)',
                 dashArray: '',
@@ -599,26 +609,26 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(55,126,184,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_LimitiComuni_VCO_7');
-        map.getPane('pane_LimitiComuni_VCO_7').style.zIndex = 407;
-        map.getPane('pane_LimitiComuni_VCO_7').style['mix-blend-mode'] = 'normal';
-        var layer_LimitiComuni_VCO_7 = new L.geoJson(json_LimitiComuni_VCO_7, {
+        map.createPane('pane_LimitiComuni_VCO_8');
+        map.getPane('pane_LimitiComuni_VCO_8').style.zIndex = 408;
+        map.getPane('pane_LimitiComuni_VCO_8').style['mix-blend-mode'] = 'normal';
+        var layer_LimitiComuni_VCO_8 = new L.geoJson(json_LimitiComuni_VCO_8, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_LimitiComuni_VCO_7',
-            layerName: 'layer_LimitiComuni_VCO_7',
-            pane: 'pane_LimitiComuni_VCO_7',
-            onEachFeature: pop_LimitiComuni_VCO_7,
-            style: style_LimitiComuni_VCO_7_0,
+            interactive: true,
+            dataVar: 'json_LimitiComuni_VCO_8',
+            layerName: 'layer_LimitiComuni_VCO_8',
+            pane: 'pane_LimitiComuni_VCO_8',
+            onEachFeature: pop_LimitiComuni_VCO_8,
+            style: style_LimitiComuni_VCO_8_0,
         });
-        bounds_group.addLayer(layer_LimitiComuni_VCO_7);
-        map.addLayer(layer_LimitiComuni_VCO_7);
-        function pop_LimitiProvinciali_piemonte_8(feature, layer) {
+        bounds_group.addLayer(layer_LimitiComuni_VCO_8);
+        map.addLayer(layer_LimitiComuni_VCO_8);
+        function pop_LimitiProvinciali_piemonte_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['COD_RIP'] !== null ? autolinker.link(feature.properties['COD_RIP'].toLocaleString()) : '') + '</td>\
@@ -660,11 +670,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_LimitiProvinciali_piemonte_8_0(feature) {
+        function style_LimitiProvinciali_piemonte_9_0(feature) {
             switch(String(feature.properties['DEN_UTS'])) {
                 case 'Alessandria':
                     return {
-                pane: 'pane_LimitiProvinciali_piemonte_8',
+                pane: 'pane_LimitiProvinciali_piemonte_9',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -674,12 +684,12 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Asti':
                     return {
-                pane: 'pane_LimitiProvinciali_piemonte_8',
+                pane: 'pane_LimitiProvinciali_piemonte_9',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -689,12 +699,12 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Biella':
                     return {
-                pane: 'pane_LimitiProvinciali_piemonte_8',
+                pane: 'pane_LimitiProvinciali_piemonte_9',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -704,12 +714,12 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Cuneo':
                     return {
-                pane: 'pane_LimitiProvinciali_piemonte_8',
+                pane: 'pane_LimitiProvinciali_piemonte_9',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -719,12 +729,12 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Novara':
                     return {
-                pane: 'pane_LimitiProvinciali_piemonte_8',
+                pane: 'pane_LimitiProvinciali_piemonte_9',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -734,12 +744,12 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Torino':
                     return {
-                pane: 'pane_LimitiProvinciali_piemonte_8',
+                pane: 'pane_LimitiProvinciali_piemonte_9',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -749,12 +759,12 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Verbano-Cusio-Ossola':
                     return {
-                pane: 'pane_LimitiProvinciali_piemonte_8',
+                pane: 'pane_LimitiProvinciali_piemonte_9',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -764,12 +774,12 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(253,141,60,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Vercelli':
                     return {
-                pane: 'pane_LimitiProvinciali_piemonte_8',
+                pane: 'pane_LimitiProvinciali_piemonte_9',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -779,12 +789,12 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 default:
                     return {
-                pane: 'pane_LimitiProvinciali_piemonte_8',
+                pane: 'pane_LimitiProvinciali_piemonte_9',
                 opacity: 1,
                 color: 'rgba(55,50,12,1.0)',
                 dashArray: '',
@@ -794,26 +804,87 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_LimitiProvinciali_piemonte_8');
-        map.getPane('pane_LimitiProvinciali_piemonte_8').style.zIndex = 408;
-        map.getPane('pane_LimitiProvinciali_piemonte_8').style['mix-blend-mode'] = 'normal';
-        var layer_LimitiProvinciali_piemonte_8 = new L.geoJson(json_LimitiProvinciali_piemonte_8, {
+        map.createPane('pane_LimitiProvinciali_piemonte_9');
+        map.getPane('pane_LimitiProvinciali_piemonte_9').style.zIndex = 409;
+        map.getPane('pane_LimitiProvinciali_piemonte_9').style['mix-blend-mode'] = 'normal';
+        var layer_LimitiProvinciali_piemonte_9 = new L.geoJson(json_LimitiProvinciali_piemonte_9, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_LimitiProvinciali_piemonte_8',
-            layerName: 'layer_LimitiProvinciali_piemonte_8',
-            pane: 'pane_LimitiProvinciali_piemonte_8',
-            onEachFeature: pop_LimitiProvinciali_piemonte_8,
-            style: style_LimitiProvinciali_piemonte_8_0,
+            interactive: true,
+            dataVar: 'json_LimitiProvinciali_piemonte_9',
+            layerName: 'layer_LimitiProvinciali_piemonte_9',
+            pane: 'pane_LimitiProvinciali_piemonte_9',
+            onEachFeature: pop_LimitiProvinciali_piemonte_9,
+            style: style_LimitiProvinciali_piemonte_9_0,
         });
-        bounds_group.addLayer(layer_LimitiProvinciali_piemonte_8);
-        map.addLayer(layer_LimitiProvinciali_piemonte_8);
-        function pop_IT1140016_9(feature, layer) {
+        bounds_group.addLayer(layer_LimitiProvinciali_piemonte_9);
+        map.addLayer(layer_LimitiProvinciali_piemonte_9);
+        function pop_LimitiRegionali_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">DEN_REG</th>\
+                        <td>' + (feature.properties['DEN_REG'] !== null ? autolinker.link(feature.properties['DEN_REG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Region Nam'] !== null ? autolinker.link(feature.properties['Region Nam'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LimitiRegionali_10_0(feature) {
+            switch(String(feature.properties['Region Nam'])) {
+                case 'Italian Regions':
+                    return {
+                pane: 'pane_LimitiRegionali_10',
+                opacity: 1,
+                color: 'rgba(103,103,8,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,190,38,0.7)',
+                interactive: true,
+            }
+                    break;
+                case 'Piemonte':
+                    return {
+                pane: 'pane_LimitiRegionali_10',
+                opacity: 1,
+                color: 'rgba(113,144,103,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(148,209,128,0.7)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_LimitiRegionali_10');
+        map.getPane('pane_LimitiRegionali_10').style.zIndex = 410;
+        map.getPane('pane_LimitiRegionali_10').style['mix-blend-mode'] = 'normal';
+        var layer_LimitiRegionali_10 = new L.geoJson(json_LimitiRegionali_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LimitiRegionali_10',
+            layerName: 'layer_LimitiRegionali_10',
+            pane: 'pane_LimitiRegionali_10',
+            onEachFeature: pop_LimitiRegionali_10,
+            style: style_LimitiRegionali_10_0,
+        });
+        bounds_group.addLayer(layer_LimitiRegionali_10);
+        map.addLayer(layer_LimitiRegionali_10);
+        function pop_IT1140016_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['SITECODE'] !== null ? autolinker.link(feature.properties['SITECODE'].toLocaleString()) : '') + '</td>\
@@ -852,9 +923,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_IT1140016_9_0() {
+        function style_IT1140016_11_0() {
             return {
-                pane: 'pane_IT1140016_9',
+                pane: 'pane_IT1140016_11',
                 opacity: 1,
                 color: 'rgba(228,26,28,1.0)',
                 dashArray: '',
@@ -865,30 +936,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_IT1140016_9');
-        map.getPane('pane_IT1140016_9').style.zIndex = 409;
-        map.getPane('pane_IT1140016_9').style['mix-blend-mode'] = 'normal';
-        var layer_IT1140016_9 = new L.geoJson(json_IT1140016_9, {
+        map.createPane('pane_IT1140016_11');
+        map.getPane('pane_IT1140016_11').style.zIndex = 411;
+        map.getPane('pane_IT1140016_11').style['mix-blend-mode'] = 'normal';
+        var layer_IT1140016_11 = new L.geoJson(json_IT1140016_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_IT1140016_9',
-            layerName: 'layer_IT1140016_9',
-            pane: 'pane_IT1140016_9',
-            onEachFeature: pop_IT1140016_9,
-            style: style_IT1140016_9_0,
+            dataVar: 'json_IT1140016_11',
+            layerName: 'layer_IT1140016_11',
+            pane: 'pane_IT1140016_11',
+            onEachFeature: pop_IT1140016_11,
+            style: style_IT1140016_11_0,
         });
-        bounds_group.addLayer(layer_IT1140016_9);
-        map.addLayer(layer_IT1140016_9);
+        bounds_group.addLayer(layer_IT1140016_11);
+        map.addLayer(layer_IT1140016_11);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/IT1140016_9.png" /> IT1140016': layer_IT1140016_9,'LimitiProvinciali_piemonte<br /><table><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Alessandria0.png" /></td><td>Alessandria</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Asti1.png" /></td><td>Asti</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Biella2.png" /></td><td>Biella</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Cuneo3.png" /></td><td>Cuneo</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Novara4.png" /></td><td>Novara</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Torino5.png" /></td><td>Torino</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_VerbanoCusioOssola6.png" /></td><td>Verbano-Cusio-Ossola</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_Vercelli7.png" /></td><td>Vercelli</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_8_8.png" /></td><td></td></tr></table>': layer_LimitiProvinciali_piemonte_8,'LimitiComuni_VCO<br /><table><tr><td style="text-align: center;"><img src="legend/LimitiComuni_VCO_7_x0.png" /></td><td>x</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiComuni_VCO_7_1.png" /></td><td></td></tr></table>': layer_LimitiComuni_VCO_7,'CLC18_SICMonteGiove<br /><table><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_2310.png" /></td><td>231</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_2431.png" /></td><td>243</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3112.png" /></td><td>311</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3123.png" /></td><td>312</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3134.png" /></td><td>313</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3215.png" /></td><td>321</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3226.png" /></td><td>322</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3247.png" /></td><td>324</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3328.png" /></td><td>332</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3339.png" /></td><td>333</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_33510.png" /></td><td>335</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_51211.png" /></td><td>512</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_12.png" /></td><td></td></tr></table>': layer_CLC18_SICMonteGiove_6,'Litologia_CutSIC<br /><table><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_CalcescistiZonaPiemonteseGiurassicoCretaceo0.png" /></td><td>Calcescisti. (Zona Piemontese, Giurassico-Cretaceo)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_GneissminutiMassiccidelDoraMairaSesiaLanzo1.png" /></td><td>Gneiss minuti. (Massicci del Dora-Maira, Sesia-Lanzo)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_GneissocchiadiniMassicciMonteRosaeValdOssola2.png" /></td><td>Gneiss occhiadini. (Massicci Monte Rosa e Val d`Ossola)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_SerpentinitiZonaPiemonteseGiurassicoCretaceo3.png" /></td><td>Serpentiniti (Zona Piemontese, Giurassico-Cretaceo)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_4.png" /></td><td></td></tr></table>': layer_Litologia_CutSIC_5,"DTM_CutSIC - PENDENZA2": layer_DTM_CutSICPENDENZA2_4,"DTM_CutSIC - esposizione": layer_DTM_CutSICesposizione_3,"re_slope": layer_re_slope_2,"aurinia_model": layer_aurinia_model_1,"Google Satellite Hybrid": layer_GoogleSatelliteHybrid_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/IT1140016_11.png" /> IT1140016': layer_IT1140016_11,'LimitiRegionali<br /><table><tr><td style="text-align: center;"><img src="legend/LimitiRegionali_10_ItalianRegions0.png" /></td><td>Italian Regions</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiRegionali_10_Piemonte1.png" /></td><td>Piemonte</td></tr></table>': layer_LimitiRegionali_10,'LimitiProvinciali_piemonte<br /><table><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_9_Alessandria0.png" /></td><td>Alessandria</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_9_Asti1.png" /></td><td>Asti</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_9_Biella2.png" /></td><td>Biella</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_9_Cuneo3.png" /></td><td>Cuneo</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_9_Novara4.png" /></td><td>Novara</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_9_Torino5.png" /></td><td>Torino</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_9_VerbanoCusioOssola6.png" /></td><td>Verbano-Cusio-Ossola</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_9_Vercelli7.png" /></td><td>Vercelli</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiProvinciali_piemonte_9_8.png" /></td><td></td></tr></table>': layer_LimitiProvinciali_piemonte_9,'LimitiComuni_VCO<br /><table><tr><td style="text-align: center;"><img src="legend/LimitiComuni_VCO_8_x0.png" /></td><td>x</td></tr><tr><td style="text-align: center;"><img src="legend/LimitiComuni_VCO_8_1.png" /></td><td></td></tr></table>': layer_LimitiComuni_VCO_8,"CTR_cut": layer_CTR_cut_7,'CLC18_SICMonteGiove<br /><table><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_2310.png" /></td><td>231</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_2431.png" /></td><td>243</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3112.png" /></td><td>311</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3123.png" /></td><td>312</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3134.png" /></td><td>313</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3215.png" /></td><td>321</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3226.png" /></td><td>322</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3247.png" /></td><td>324</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3328.png" /></td><td>332</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_3339.png" /></td><td>333</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_33510.png" /></td><td>335</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_51211.png" /></td><td>512</td></tr><tr><td style="text-align: center;"><img src="legend/CLC18_SICMonteGiove_6_12.png" /></td><td></td></tr></table>': layer_CLC18_SICMonteGiove_6,'Litologia_CutSIC<br /><table><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_CalcescistiZonaPiemonteseGiurassicoCretaceo0.png" /></td><td>Calcescisti. (Zona Piemontese, Giurassico-Cretaceo)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_GneissminutiMassiccidelDoraMairaSesiaLanzo1.png" /></td><td>Gneiss minuti. (Massicci del Dora-Maira, Sesia-Lanzo)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_GneissocchiadiniMassicciMonteRosaeValdOssola2.png" /></td><td>Gneiss occhiadini. (Massicci Monte Rosa e Val d`Ossola)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_SerpentinitiZonaPiemonteseGiurassicoCretaceo3.png" /></td><td>Serpentiniti (Zona Piemontese, Giurassico-Cretaceo)</td></tr><tr><td style="text-align: center;"><img src="legend/Litologia_CutSIC_5_4.png" /></td><td></td></tr></table>': layer_Litologia_CutSIC_5,"DTM_CutSIC - PENDENZA2": layer_DTM_CutSICPENDENZA2_4,"DTM_CutSIC - esposizione": layer_DTM_CutSICesposizione_3,"re_slope": layer_re_slope_2,"aurinia_model": layer_aurinia_model_1,"Google Satellite Hybrid": layer_GoogleSatelliteHybrid_0,}).addTo(map);
         setBounds();
         var i = 0;
-        layer_LimitiComuni_VCO_7.eachLayer(function(layer) {
+        layer_LimitiComuni_VCO_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['COMUNE'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['COMUNE']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LimitiComuni_VCO_7'});
+            layer.bindTooltip((layer.feature.properties['COMUNE'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['COMUNE']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LimitiComuni_VCO_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -896,12 +967,25 @@
               i++;
         });
         var i = 0;
-        layer_LimitiProvinciali_piemonte_8.eachLayer(function(layer) {
+        layer_LimitiProvinciali_piemonte_9.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['DEN_UTS'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['DEN_UTS']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LimitiProvinciali_piemonte_8'});
+            layer.bindTooltip((layer.feature.properties['DEN_UTS'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['DEN_UTS']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LimitiProvinciali_piemonte_9'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_LimitiRegionali_10.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['DEN_REG'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['DEN_REG']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LimitiRegionali_10'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -913,15 +997,15 @@
                 return this._bounds;
             }
         });
-        resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_7,layer_LimitiProvinciali_piemonte_8]);
+        resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_8,layer_LimitiProvinciali_piemonte_9,layer_LimitiRegionali_10]);
         map.on("zoomend", function(){
-            resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_7,layer_LimitiProvinciali_piemonte_8]);
+            resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_8,layer_LimitiProvinciali_piemonte_9,layer_LimitiRegionali_10]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_7,layer_LimitiProvinciali_piemonte_8]);
+            resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_8,layer_LimitiProvinciali_piemonte_9,layer_LimitiRegionali_10]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_7,layer_LimitiProvinciali_piemonte_8]);
+            resetLabels([layer_CLC18_SICMonteGiove_6,layer_LimitiComuni_VCO_8,layer_LimitiProvinciali_piemonte_9,layer_LimitiRegionali_10]);
         });
         </script>
     </body>
