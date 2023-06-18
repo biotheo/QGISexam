@@ -4,6 +4,7 @@ QGIS maps produced for the exam of Application of Geographic Information Systems
 Current version: **1.0**
 
 Link to the HTML dynamic webpage: [Latest WebMap](https://biotheo.github.io/QGISexam/ "WebMap") 
+
 -----
 Technicals
 - software: **QGIS 3.16.5-Hannover** 
